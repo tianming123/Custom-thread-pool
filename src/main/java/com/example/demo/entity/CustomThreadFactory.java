@@ -16,7 +16,7 @@ public class CustomThreadFactory implements ThreadFactory {
 
     @Override
     public Thread newThread(Runnable r) {
-        Thread thread = new Thread(r,namePrefix+'-'+atomicInteger.getAndAccumulate());
+        Thread thread = new Thread(r,namePrefix+'-'+atomicInteger.getAndIncrement());
         thread.setDaemon(isDaemon);
         //设置线程优先级
         if(thread.getPriority()!=Thread.NORM_PRIORITY){
